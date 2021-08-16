@@ -87,6 +87,8 @@
   top: 40px;
   z-index: 10;
   cursor: pointer;
+  background: transparent;
+  border: none;
 }
 
 .menuNav {
