@@ -3,7 +3,7 @@ import Header from './Header';
 import TodosList from './TodosList';
 
 const TodoContainer = () => {
-  const [state] = useState({
+  const [state, setStates] = useState({
     todos: [
       {
         id: 1,
@@ -23,8 +23,15 @@ const TodoContainer = () => {
     ],
   });
 
-  const handleChange = () => {
-    console.log('clicked');
+  const handleChange = (id) => {
+    setStates({
+      todos: state.todos.map((todo) => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed;
+        }
+        return todo;
+      }),
+    });
   };
 
   return (
