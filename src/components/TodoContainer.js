@@ -22,10 +22,15 @@ const TodoContainer = () => {
       },
     ],
   });
+
+  const handleChange = () => {
+    console.log('clicked');
+  };
+
   return (
     <div>
       <Header />
-      <TodosList todos={state.todos} />
+      <TodosList todos={state.todos} handleChangeProps={handleChange} />
     </div>
   );
 };
