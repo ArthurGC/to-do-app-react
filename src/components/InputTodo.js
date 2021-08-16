@@ -14,8 +14,6 @@ const InputTodo = ({ addTodoProps }) => {
     if (data.title.trim()) {
       addTodoProps(data.title);
       setData({ title: '' });
-    } else {
-      alert('Please write item');
     }
   };
 
