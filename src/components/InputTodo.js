@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-const InputTodo = () => {
+const InputTodo = ({ addTodoProps }) => {
   const [data, setData] = useState({ title: '' });
 
   const onChange = (e) => {
@@ -9,6 +10,8 @@ const InputTodo = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    addTodoProps(data.title);
+    setData({ title: '' });
   };
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
@@ -22,6 +25,10 @@ const InputTodo = () => {
       <button type="submit">Submit</button>
     </form>
   );
+};
+
+InputTodo.propTypes = {
+  addTodoProps: PropTypes.func.isRequired,
 };
 
 export default InputTodo;

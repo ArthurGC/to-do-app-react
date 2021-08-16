@@ -46,10 +46,21 @@ const TodoContainer = () => {
     });
   };
 
+  const addTodoItem = (title) => {
+    const newTodo = {
+        id: 4,
+        title: title,
+        completed: false
+    };
+    setStates({
+        todos: [...state.todos, newTodo]
+    })
+  };
+
   return (
     <div>
       <Header />
-      <InputTodo />
+      <InputTodo addTodoProps={addTodoItem} />
       <TodosList todos={state.todos} handleChangeProps={handleChange} deleteTodoProps={delTodo} />
     </div>
   );
