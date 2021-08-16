@@ -37,10 +37,18 @@ const TodoContainer = () => {
     });
   };
 
+  const delTodo = (id) => {
+    setStates({
+      todos: [
+        ...state.todos.filter((todo) => todo.id !== id),
+      ],
+    });
+  };
+
   return (
     <div>
       <Header />
-      <TodosList todos={state.todos} handleChangeProps={handleChange} />
+      <TodosList todos={state.todos} handleChangeProps={handleChange} deleteTodoProps={delTodo} />
     </div>
   );
 };
