@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Header from './Header';
+import InputTodo from './InputTodo';
 import TodosList from './TodosList';
 
 const TodoContainer = () => {
@@ -48,6 +49,7 @@ const TodoContainer = () => {
   return (
     <div>
       <Header />
+      <InputTodo />
       <TodosList todos={state.todos} handleChangeProps={handleChange} deleteTodoProps={delTodo} />
     </div>
   );
