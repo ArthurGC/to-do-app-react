@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const TodoItem = ({ todo }) => (
-  <li>{todo.title}</li>
+  <li>
+    <input type="checkbox" />
+    {todo.title}
+  </li>
 );
 
 TodoItem.propTypes = {
