@@ -10,9 +10,14 @@ const InputTodo = ({ addTodoProps }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addTodoProps(data.title);
-    setData({ title: '' });
+    if (data.title.trim()) {
+      addTodoProps(data.title);
+      setData({ title: '' });
+    } else {
+      alert('Please write item');
+    }
   };
+
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
       <input
