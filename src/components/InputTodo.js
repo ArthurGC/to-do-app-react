@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const InputTodo = () => (
-  <form>
-    <input type="text" placeholder="Add Todo" />
-    <button type="submit">Submit</button>
-  </form>
-);
+const InputTodo = () => {
+  const [state] = useState({ title: '' });
+  return (
+    <form>
+      <input type="text" placeholder="Add Todo" value={state.title} />
+      <button type="submit">Submit</button>
+    </form>
+  );
+};
 
 export default InputTodo;
