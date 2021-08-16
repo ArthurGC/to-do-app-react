@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import Header from './Header';
 import InputTodo from './InputTodo';
 import TodosList from './TodosList';
@@ -7,17 +8,17 @@ const TodoContainer = () => {
   const [state, setStates] = useState({
     todos: [
       {
-        id: 1,
+        id: uuidv4(),
         title: 'Setup development environment',
         completed: true,
       },
       {
-        id: 2,
+        id: uuidv4(),
         title: 'Develop website and add content',
         completed: false,
       },
       {
-        id: 3,
+        id: uuidv4(),
         title: 'Deploy to live server',
         completed: false,
       },
@@ -48,13 +49,13 @@ const TodoContainer = () => {
 
   const addTodoItem = (title) => {
     const newTodo = {
-        id: 4,
-        title: title,
-        completed: false
+      id: uuidv4(),
+      title,
+      completed: false,
     };
     setStates({
-        todos: [...state.todos, newTodo]
-    })
+      todos: [...state.todos, newTodo],
+    });
   };
 
   return (
