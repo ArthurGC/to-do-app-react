@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Header from './Header';
 import TodosList from './TodosList';
 
 const TodoContainer = () => {
@@ -23,6 +24,7 @@ const TodoContainer = () => {
   });
   return (
     <div>
+      <Header />
       <TodosList todos={state.todos} />
     </div>
   );
