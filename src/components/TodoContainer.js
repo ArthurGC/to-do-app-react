@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../App.css';
 import { v4 as uuidv4 } from 'uuid';
 import Header from './Header';
 import InputTodo from './InputTodo';
@@ -41,9 +42,7 @@ const TodoContainer = () => {
 
   const delTodo = (id) => {
     setStates({
-      todos: [
-        ...state.todos.filter((todo) => todo.id !== id),
-      ],
+      todos: [...state.todos.filter((todo) => todo.id !== id)],
     });
   };
 
@@ -58,11 +57,29 @@ const TodoContainer = () => {
     });
   };
 
+  const setUpdate = (updateTitle, id) => {
+    setStates({
+      todos: state.todos.map((todo) => {
+        if (todo.id === id) {
+          todo.title = updateTitle;
+        }
+        return todo;
+      }),
+    });
+  };
+
   return (
-    <div>
-      <Header />
-      <InputTodo addTodoProps={addTodoItem} />
-      <TodosList todos={state.todos} handleChangeProps={handleChange} deleteTodoProps={delTodo} />
+    <div className="container">
+      <div className="inner">
+        <Header />
+        <InputTodo addTodoProps={addTodoItem} />
+        <TodosList
+          todos={state.todos}
+          handleChangeProps={handleChange}
+          deleteTodoProps={delTodo}
+          setUpdate={setUpdate}
+        />
+      </div>
     </div>
   );
 };
